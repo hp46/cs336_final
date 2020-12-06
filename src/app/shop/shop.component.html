@@ -1,8 +1,8 @@
-<div class="shop-item">
-    <p>CalvinHacks poster</p>
-    <img src="../assets/images/hacks2.png">
+<div *ngFor="let goods of goodsList; index as i" class="shop-item">
+    <p>{{goods.goods_name}}</p>
+    <img src={{goods.img_src}}>
     <div class="quantity">
-        <p>{{quant}}</p>
+        <p>{{goods.quant}}</p>
         <button class="plus" (click)="plusone()">
             <img src="../assets/images/plus.jpg" width="50" height="50">
         </button>
