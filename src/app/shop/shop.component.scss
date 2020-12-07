@@ -1,5 +1,5 @@
 * {
-    border: 1px black solid;
+    border: 0px black solid;
 }
 
 .shop-item {
@@ -23,4 +23,8 @@
 
 .circle:hover {
     background-color: rgb(64, 99, 211);
+}
+
+#title {
+    text-transform: uppercase;
 }

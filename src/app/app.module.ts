@@ -9,8 +9,9 @@ import { ComputerComponent } from './computer/computer.component';
 import { ShopComponent } from './shop/shop.component';
 import { ContactComponent } from './contact/contact.component';
 import { DetailComponent } from './detail/detail.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import {ScrollingModule} from '@angular/cdk/scrolling';
 import {MatDialogModule} from '@angular/material/dialog';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -34,6 +35,7 @@ import { firebaseConfig } from './credentials';
   imports: [
     AngularFireModule.initializeApp(firebaseConfig), 
     AngularFirestoreModule, 
+    ScrollingModule,
     BrowserModule,
     AppRoutingModule,
     MatDialogModule,

@@ -1,6 +1,6 @@
 <div *ngFor="let goods of goodsList; index as i" class="shop-item">
-    <p>{{goods.goods_name}}</p>
-    <img src={{goods.img_src}}>
+    <p id="title">{{goods.goods_name}}</p>
+    <img src={{goods.img_src}} width="300" height="400">
     <div class="quantity">
         <p>{{goods.quant}}</p>
         <button class="plus" (click)="plusone(i)">
