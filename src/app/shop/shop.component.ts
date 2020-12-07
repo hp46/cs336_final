@@ -15,11 +15,11 @@ interface Item {
 })
 export class ShopComponent implements OnInit {
   quant: number = 0;
-  goodsList: Array<Item>;
+  goodsList: Array<Item> = [];
 
-  goods_name: string;
-  img_src: string;
-  img_id: string
+  goods_name: string = "";
+  img_src: string = "";
+  img_id: string = "";
 
   constructor( private db: AngularFirestore ) {
     this.db.collection<Item>('/goodsCollection').valueChanges().subscribe(res => {

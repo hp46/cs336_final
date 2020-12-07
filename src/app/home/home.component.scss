@@ -4,21 +4,14 @@
     
 }
 
-
-.computer {
-    width: 400;
-    height: 400;
-    
-}
-
 .images_graphic {
     text-align: center;
-    //cursor: pointer;
     display: inline-block;
-    margin-left: auto;
-    //float: right;
-    width: 400px;
-    height: 400px;
+    margin-right: auto;
+}
+
+.home_img {
+    object-fit: contain;
 }
 
 
@@ -26,38 +19,36 @@
     text-align: center;
     cursor: pointer;
     display: inline-block;
-    margin-right: auto;
-    object-fit: cover;
-    width: 400px;
-    height: 400px;
-    
+    margin-left: auto;
 }
 
 
 .twoimages {
-    padding-top: 10%;
     text-align: center;
     
 }
 
 p {
     text-transform: uppercase;
-    font-size: large;
+    font-size: 30px;
     font-weight: bolder;
     text-decoration: none;
+    color:black;
 }
 
+// animation after event
 .twoimages a:visited {
     color: black;
     text-decoration: none;
 }
 
 .twoimages a:hover {
+    color: rgba(33, 33, 33, 0.8);
     opacity: .8;
     transform: scale(1.5);
     transition: all 0.3s ease 0s;
-    color: rgba(33, 33, 33, 0.8);
 }
+
 
 .twoimages a {
     text-decoration: none;

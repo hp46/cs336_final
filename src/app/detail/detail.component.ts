@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
+interface Item {
+  orderNumber: number;
+  
+}
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',

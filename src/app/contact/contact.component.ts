@@ -14,11 +14,11 @@ interface contact{
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-  contacts:Array<contact>
+  contacts:Array<contact> = [];
 
-  name:string;
-  email:string;
-  information:string;
+  name:string = "";
+  email:string = "";
+  information:string = "";
 
   constructor( private db: AngularFirestore ) {
     this.db.collection<contact>('/contactCollection').valueChanges().subscribe(res => {

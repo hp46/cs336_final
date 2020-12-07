@@ -3,11 +3,18 @@
     <img src={{goods.img_src}}>
     <div class="quantity">
         <p>{{goods.quant}}</p>
-        <button class="plus" (click)="plusone()">
+        <button class="plus" (click)="plusone(i)">
             <img src="../assets/images/plus.jpg" width="50" height="50">
         </button>
-        <button class="minus" (click)="minusone()">
+        <button class="minus" (click)="minusone(i)">
             <img src="../assets/images/minus.jpg" width="50" height="50">
         </button>
     </div>
 </div>
+
+
+<a class="checkout" routerLink="/detail-component">
+    <button class="circle">
+        CHECK OUT
+    </button>
+</a>

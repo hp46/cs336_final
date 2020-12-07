@@ -8,6 +8,7 @@ import { DesignComponent } from './design/design.component';
 import { ComputerComponent } from './computer/computer.component';
 import { ShopComponent } from './shop/shop.component';
 import { ContactComponent } from './contact/contact.component';
+import { DetailComponent } from './detail/detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import {MatDialogModule} from '@angular/material/dialog';
@@ -27,7 +28,8 @@ import { firebaseConfig } from './credentials';
     DesignComponent,
     ComputerComponent,
     ShopComponent,
-    ContactComponent
+    ContactComponent,
+    DetailComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(firebaseConfig), 

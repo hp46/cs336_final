@@ -5,6 +5,7 @@ import { DesignComponent } from './design/design.component';
 import { ComputerComponent } from './computer/computer.component';
 import { ShopComponent } from './shop/shop.component';
 import { ContactComponent } from './contact/contact.component';
+import { DetailComponent } from './detail/detail.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'computer-component', component: ComputerComponent},
   { path: 'shop-component', component: ShopComponent },
   { path: 'contact-component', component: ContactComponent},
+  { path: 'detail-component', component: DetailComponent},
   { path: '**', component: HomeComponent},
 ];
 
