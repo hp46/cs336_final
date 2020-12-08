@@ -1,18 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-interface Item {
-  orderNumber: number;
-  
-}
+import { PurchaseOrderService } from '../purchase-order.service';
+import { Item } from '../shop/shop.component'
+
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.scss']
+  styleUrls: ['./detail.component.scss'],
+  providers: [PurchaseOrderService]
 })
 export class DetailComponent implements OnInit {
 
-  constructor() { }
+  purchaseOrder: Array<Item> = [];
+
+  constructor(private poService: PurchaseOrderService) {this.purchaseOrder = this.poService.getPurchaseOrder();}
 
   ngOnInit(): void {
+
+  }
+
+  getDetail() {
+    console.log(this.poService.printPurchaseOrder())
   }
 
 }

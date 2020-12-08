@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 
-interface Item {
+export interface Item {
   img_id: string;
   goods_name: string;
   img_src: string;
@@ -14,8 +14,8 @@ interface Item {
   styleUrls: ['./shop.component.scss']
 })
 export class ShopComponent implements OnInit {
-  quant: number = 0;
   goodsList: Array<Item> = [];
+  purchaseOrder: Array<Item> = [];
 
   goods_name: string = "";
   img_src: string = "";
@@ -27,9 +27,9 @@ export class ShopComponent implements OnInit {
     });
   }
 
-  storeContact(){
+  storeGoods(){
     let randomID:string = Math.random().toString(36).substring(7)
-    this.db.doc<Item>(`/contactCollection/${randomID}`).set({
+    this.db.doc<Item>(`/goodsCollection/${randomID}`).set({
       img_id: randomID,
       img_src: this.img_src,
       goods_name: this.goods_name,
@@ -50,8 +50,18 @@ export class ShopComponent implements OnInit {
   }
 
   minusone(index: number) {
-    if (this.goodsList[index].quant >= 0 ) {
+    if (this.goodsList[index].quant > 0 ) {
       this.goodsList[index].quant -= 1;
     }
+  }
+
+  getPurchaseOrder() {
+    this.goodsList.forEach(element => {
+      if (element.quant > 0) {
+        this.purchaseOrder.push(element);
+        // element.quant = 0;
+      } 
+    });
+    console.log(this.purchaseOrder)
   }
 }

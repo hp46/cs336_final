@@ -22,6 +22,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore'; 
 import { firebaseConfig } from './credentials';
 
+import {PurchaseOrderService} from './purchase-order.service'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +48,7 @@ import { firebaseConfig } from './credentials';
     ReactiveFormsModule,
   ],
   entryComponents: [ComputerComponent],
-  providers: [],
+  providers: [PurchaseOrderService],
   bootstrap: [AppComponent, ComputerComponent] //only appcomponent
 })
 export class AppModule { }
