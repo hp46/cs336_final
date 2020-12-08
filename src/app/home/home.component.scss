@@ -6,19 +6,13 @@
 
 .images_graphic {
     text-align: center;
-    display: inline-block;
+    display: inline-flex;
     margin-right: auto;
 }
 
-.home_img {
-    object-fit: contain;
-}
-
-
 .images_computer {
     text-align: center;
-    cursor: pointer;
-    display: inline-block;
+    display: inline-flex;
     margin-left: auto;
 }
 
@@ -28,13 +22,6 @@
     
 }
 
-p {
-    text-transform: uppercase;
-    font-size: 30px;
-    font-weight: bolder;
-    text-decoration: none;
-    color:black;
-}
 
 // animation after event
 .twoimages a:visited {
@@ -50,6 +37,16 @@ p {
 }
 
 
-.twoimages a {
-    text-decoration: none;
+.computer{
+    max-width: 100%;
+    text-align: center;
+    display: inline-block;
+    margin-right: auto;
+}
+
+.design {
+    max-width: 100%;
+    text-align: center;
+    display: inline-block;
+    margin-left: auto;
 }
