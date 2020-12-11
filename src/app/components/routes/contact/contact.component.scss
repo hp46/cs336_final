@@ -1,0 +1,45 @@
+* {
+    padding: 30px;
+}
+
+.two {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+    padding: 0px 0px;
+    font-size: .9vw;
+}
+
+
+.title {
+    font-size: 2vw;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-style: italic;
+}
+
+button {
+    color: white;
+    padding: 9px 25px;
+    background-color: rgb(54, 51, 220);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    margin-left: 55px;
+    font-size: .9vw;
+}
+
+button:hover {
+    background-color: rgb(236, 214, 11);
+}
+
+.information {
+    margin-left: 30px;
+    height: 200px;
+    width: 400px;
+    padding-left:0;
+    padding-top:0;
+    padding-bottom:0.4em;
+    padding-right: 0.4em;
+}

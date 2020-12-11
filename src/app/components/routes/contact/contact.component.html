@@ -1,0 +1,10 @@
+<div class="title">
+    <label>Name: </label>
+    <input type='text' [(ngModel)] = "name" class="two"><br>
+    <label> Email: </label>
+    <input type = "text" [(ngModel)] = "email" class="two"><br>
+    <label> Information: </label><br>
+    <!-- <input type = "text" [(ngModel)] = "information" class="information"><br> -->
+    <textarea class="information" [(ngModel)] = "information" cols="30" rows="10"></textarea>
+</div>
+<button (click)="storeContact()">Submit</button>  

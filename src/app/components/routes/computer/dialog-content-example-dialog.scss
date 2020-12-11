@@ -1,10 +1,9 @@
 .body {
     display: flex;
-    flex-direction: column;
 }
 
 .computer {
-    object-fit: cover;
+    object-fit: scale-down;
 }
 .text {
     margin-left: 50px;

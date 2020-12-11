@@ -1,14 +1,17 @@
 * {
     border: 0px solid black;
-    font-family: 'Open Sans';
+    margin: 0;
+    padding: 0;
 }
 
-
+.images {
+    object-fit: cover;
+    cursor: pointer;
+}
 .container {
     position: relative;
-    width: 50%;
-    margin-left: 2vw;
-    cursor: pointer;
+    height: 400px;
+
   }
   
   .image {
@@ -26,15 +29,20 @@
     height: 100%;
     width: 100%;
     opacity: 0;
-    transition: .5s ease; 
-    background-color: rgba(241, 241, 241, 1);
+    transition: .5s ease;
+    background-color:white;
+  }
+  
+  .container:hover .overlay {
+    opacity: .8;
   }
 
   
+  
   .text {
-    color:rgb(140, 33, 51);
+    color: white;
     letter-spacing: 5px;
-    font-size: 50px;
+    font-size: 40px;
     position: absolute;
     text-transform: uppercase;
     font-weight: 1000;
@@ -46,6 +54,6 @@
     text-align: center;
   }
 
-  .container:hover .overlay {
-    opacity: .8;
-  }
+.popup {
+     visibility: hidden;
+}
