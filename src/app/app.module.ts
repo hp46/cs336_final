@@ -32,7 +32,6 @@ import { CardComponent } from './components/designdetail/card/card.component';
 import { LinkComponent } from './components/designdetail/link/link.component';
 import { TravelComponent } from './components/designdetail/travel/travel.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

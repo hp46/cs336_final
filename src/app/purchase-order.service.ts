@@ -1,46 +1,59 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Item } from './components/routes/shop/shop.component';
+import { Observable } from 'rxjs';
+
+export interface Item {
+  goods_name: string;
+  img_src: string;
+  quant: number;
+  price: number;
+}
+
+export interface PurchaseOrder {
+  total_price: number;
+  item_list: Item[];
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class PurchaseOrderService {
-  goodsList: Array<Item> = [];
+  goodsList: Observable<Array<Item>>;
 
-  private purchaseOrder: Array<Item> = [];
+  purchaseOrder: Observable<PurchaseOrder[]>;
 
   constructor(private db: AngularFirestore) { 
-    this.db.collection<Item>('/goodsCollection').valueChanges().subscribe(res => {
-      this.goodsList = res;
-    });
+    this.goodsList = this.db.collection<Item>('/goodsCollection').valueChanges();
+    this.purchaseOrder = this.db.collection<PurchaseOrder>('/orderCollection').valueChanges();
   }
 
+  // Gets Goods list for shopping component
   getGoodsList() {
     console.log(this.goodsList);
     return this.goodsList;
   }
 
-  addGoodsList(img_src: string, goods_name: string) {
-    let randomID:string = Math.random().toString(36).substring(7)
-    this.db.doc<Item>(`/goodsCollection/${randomID}`).set({
-      img_id: randomID,
-      img_src: img_src,
-      goods_name: goods_name,
-      quant: 0
-    })
+  
+  addPurchaseOrderDB(goodsId: string, purchaseOrder: PurchaseOrder) {
+    this.db.collection("orderCollection").doc<PurchaseOrder>(goodsId).set(purchaseOrder)
+
     console.log("store working!")
   }
 
-  addPurchaseOrder(item: Item){
-    this.purchaseOrder.push(item);
-  }
-
-  getPurchaseOrder(): Array<Item> {
+  getPurchaseOrder(): Observable<PurchaseOrder[]> {
     return this.purchaseOrder;
   }
-
-  printPurchaseOrder() {
-    console.log(this.purchaseOrder)
-  }
 }
+
+
+  // Future usage (all the shop items will be manually entered into firebase for now)
+  // addGoodsList(img_src: string, goods_name: string, price: number) {
+  //   this.db.collection("goodsCollection").doc<Item>(goods_name).set({
+  //     img_src: img_src,
+  //     goods_name: goods_name,
+  //     quant: 0,
+  //     price: price
+  //   })
+
+  //   console.log("store working!")
+  // }

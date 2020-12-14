@@ -1,4 +1,6 @@
 <div class="title">
+    <label>Id: </label>
+    <input type='text' [(ngModel)] = "id" class="two"><br>
     <label>Name: </label>
     <input type='text' [(ngModel)] = "name" class="two"><br>
     <label> Email: </label>
@@ -8,3 +10,4 @@
     <textarea class="information" [(ngModel)] = "information" cols="30" rows="10"></textarea>
 </div>
 <button (click)="storeContact()">Submit</button>  
+<button (click)="deleteContact()">Delete</button>  

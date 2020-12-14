@@ -11,10 +11,10 @@
         </button>
     </div>
 </div>
-<button (click) = "getPurchaseOrder()">Add to cart</button>
+<button (click) = "createPurchaseOrder()">Add to cart</button>
 
 
-<a class="checkout" routerLink="/detail-component">
+<a class="checkout" (click) = serviceTest() routerLink="/detail-component">
     <button class="circle">
         CHECK OUT
     </button>

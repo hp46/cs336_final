@@ -1,10 +1,13 @@
 <p>this is where shop detail is going to be display</p>
 
-<div *ngFor="let goods of purchaseOrder; index as i">
-    <p>Goods: {{goods.goods_name}}</p>
-    <img src={{goods.img_src}} width="300" height="400">
-    <div class="quantity">
-        <p>{{goods.quant}}</p>
+<div *ngFor="let order of purchaseOrder; index as i">
+    <p>Total Price: {{order.total_price}}</p>
+    <div *ngFor="let goods of order.item_list">
+        <p>Goods: {{goods.goods_name}}</p>
+        <img src={{goods.img_src}} width="150" height="200">
+        <div class="quantity">
+            <p>{{goods.quant}}</p>
+        </div>
     </div>
 </div>
 

@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { PurchaseOrderService } from '../../../purchase-order.service'
+import { Item } from '../../../purchase-order.service'
+import { PurchaseOrder } from '../../../purchase-order.service'
 
-export interface Item {
-  img_id: string;
-  goods_name: string;
-  img_src: string;
-  quant: number;
-}
 
 @Component({
   selector: 'app-shop',
@@ -14,32 +11,22 @@ export interface Item {
   styleUrls: ['./shop.component.scss']
 })
 export class ShopComponent implements OnInit {
-  goodsList: Array<Item> = [];
-  purchaseOrder: Array<Item> = [];
+  goodsList: Item[] = [];
+  purchaseOrder: PurchaseOrder;
 
   goods_name: string = "";
   img_src: string = "";
   img_id: string = "";
+  price: number = 0;
 
-  constructor( private db: AngularFirestore ) {
-    this.db.collection<Item>('/goodsCollection').valueChanges().subscribe(res => {
-      this.goodsList = res;
+  total_price: number = 0;
+  purchaseOrderId: string = "first_purchase";
+
+  constructor( private db: AngularFirestore, private poService: PurchaseOrderService ) {
+    this.poService.getGoodsList().subscribe(data => {
+      console.log("this is : " + data);
+      this.goodsList = data;
     });
-  }
-
-  storeGoods(){
-    let randomID:string = Math.random().toString(36).substring(7)
-    this.db.doc<Item>(`/goodsCollection/${randomID}`).set({
-      img_id: randomID,
-      img_src: this.img_src,
-      goods_name: this.goods_name,
-      quant: 0
-    })
-    console.log("store working!")
-
-    this.img_id = "";
-    this.img_src = "";
-    this.goods_name = "";
   }
 
   ngOnInit(): void {
@@ -55,13 +42,27 @@ export class ShopComponent implements OnInit {
     }
   }
 
-  getPurchaseOrder() {
-    this.goodsList.forEach(element => {
-      if (element.quant > 0) {
-        this.purchaseOrder.push(element);
-        // element.quant = 0;
-      } 
+  createPurchaseOrder() {
+    // Calculate total price
+    this.goodsList.forEach(goods => {
+      this.total_price += goods.price * goods.quant;
     });
-    console.log(this.purchaseOrder)
+
+    // Create purchaseOrder object
+    this.purchaseOrder = {
+      total_price: this.total_price,
+      item_list: this.goodsList
+    };
+
+    // Reset goods' quantity
+    // this.goodsList.forEach(goods => {
+    //   goods.quant = 0;
+    // });
+
+    console.log(this.purchaseOrder);
+  }
+
+  serviceTest() {
+    this.poService.addPurchaseOrderDB(this.purchaseOrderId, this.purchaseOrder)
   }
 }

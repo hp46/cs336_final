@@ -1,6 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { PurchaseOrderService } from '../purchase-order.service';
-import { Item } from '../components/routes/shop/shop.component';
+
+export interface Item {
+  goods_name: string;
+  img_src: string;
+  quant: number;
+  price: number;
+}
+
+export interface PurchaseOrder {
+  total_price: number;
+  item_list: Item[];
+}
 
 @Component({
   selector: 'app-detail',
@@ -10,16 +21,21 @@ import { Item } from '../components/routes/shop/shop.component';
 })
 export class DetailComponent implements OnInit {
 
-  purchaseOrder: Array<Item> = [];
+  purchaseOrder: PurchaseOrder[];
 
-  constructor(private poService: PurchaseOrderService) {this.purchaseOrder = this.poService.getPurchaseOrder();}
+  constructor(private poService: PurchaseOrderService) {
+    this.poService.getPurchaseOrder().subscribe(data => {
+      console.log("this is : " + data);
+      this.purchaseOrder = data;
+    });
+  }
 
   ngOnInit(): void {
 
   }
 
   getDetail() {
-    console.log(this.poService.printPurchaseOrder())
+    console.log(this.poService.getPurchaseOrder())
   }
 
 }
