@@ -12,7 +12,10 @@ import { PurchaseOrder } from '../../../purchase-order.service'
 })
 export class ShopComponent implements OnInit {
   goodsList: Item[] = [];
-  purchaseOrder: PurchaseOrder;
+  purchaseOrder: PurchaseOrder = {
+    total_price: 0,
+    item_list: []
+  };
 
   goods_name: string = "";
   img_src: string = "";

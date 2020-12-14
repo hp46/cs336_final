@@ -21,7 +21,7 @@ export interface PurchaseOrder {
 })
 export class DetailComponent implements OnInit {
 
-  purchaseOrder: PurchaseOrder[];
+  purchaseOrder: PurchaseOrder[] = [];
 
   constructor(private poService: PurchaseOrderService) {
     this.poService.getPurchaseOrder().subscribe(data => {

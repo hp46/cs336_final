@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 
+// Create contact interface
 interface contact{
   name:string;
   email:string;
@@ -14,6 +15,7 @@ interface contact{
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
+  // Receives value from the firebase DB
   contacts:Array<contact> = [];
 
   name:string = "";
@@ -21,6 +23,7 @@ export class ContactComponent implements OnInit {
   information:string = "";
   id: string = "";
 
+  
   constructor( private db: AngularFirestore ) {
     this.db.collection<contact>('/contactCollection').valueChanges().subscribe(res => {
       this.contacts = res;
