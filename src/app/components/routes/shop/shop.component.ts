@@ -61,7 +61,7 @@ export class ShopComponent implements OnInit {
   }
 
   serviceTest() {
-    this.poService.addPurchaseOrderDB(this.purchaseOrderId, this.purchaseOrder)
+    this.poService.addPurchaseOrderDB(this.purchaseOrder)
 
     // Reset goods' quantity
     this.goodsList.forEach(goods => {

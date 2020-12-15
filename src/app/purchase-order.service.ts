@@ -34,8 +34,8 @@ export class PurchaseOrderService {
   }
 
   
-  addPurchaseOrderDB(goodsId: string, purchaseOrder: PurchaseOrder) {
-    this.db.collection("orderCollection").doc<PurchaseOrder>(goodsId).set(purchaseOrder)
+  addPurchaseOrderDB(purchaseOrder: PurchaseOrder) {
+    this.db.collection("orderCollection").add(purchaseOrder)
 
     console.log("store working!")
   }
