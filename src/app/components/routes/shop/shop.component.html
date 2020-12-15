@@ -1,5 +1,5 @@
 <div *ngFor="let goods of goodsList; index as i" class="shop-item">
-    <p id="title">{{goods.goods_name}}</p>
+    <p id="title">{{goods.goods_name}} : ${{goods.price}}</p>
     <img src={{goods.img_src}} width="400" height="550" class="image"> <br>
     <div class="quantity">
         <p id="size">{{goods.quant}}</p>

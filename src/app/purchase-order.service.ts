@@ -44,16 +44,3 @@ export class PurchaseOrderService {
     return this.purchaseOrder;
   }
 }
-
-
-  // Future usage (all the shop items will be manually entered into firebase for now)
-  // addGoodsList(img_src: string, goods_name: string, price: number) {
-  //   this.db.collection("goodsCollection").doc<Item>(goods_name).set({
-  //     img_src: img_src,
-  //     goods_name: goods_name,
-  //     quant: 0,
-  //     price: price
-  //   })
-
-  //   console.log("store working!")
-  // }

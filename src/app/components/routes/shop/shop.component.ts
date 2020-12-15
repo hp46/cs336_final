@@ -57,15 +57,15 @@ export class ShopComponent implements OnInit {
       item_list: this.goodsList
     };
 
-    // Reset goods' quantity
-    // this.goodsList.forEach(goods => {
-    //   goods.quant = 0;
-    // });
-
     console.log(this.purchaseOrder);
   }
 
   serviceTest() {
     this.poService.addPurchaseOrderDB(this.purchaseOrderId, this.purchaseOrder)
+
+    // Reset goods' quantity
+    this.goodsList.forEach(goods => {
+      goods.quant = 0;
+    });
   }
 }
