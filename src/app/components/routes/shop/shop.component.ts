@@ -27,7 +27,7 @@ export class ShopComponent implements OnInit {
 
   constructor( private db: AngularFirestore, private poService: PurchaseOrderService ) {
     this.poService.getGoodsList().subscribe(data => {
-      console.log("this is : " + data);
+      //console.log("this is : " + data);
       this.goodsList = data;
     });
   }

@@ -1,18 +1,54 @@
+* {
+    box-sizing: border-box;
+  }
+
 .main_img {
     margin-top: 50px;
     display: block;
     margin-left: auto;
     margin-right: auto;
     object-fit: cover;
-    max-width: 100%;
+    //max-width: 100%;
 }
 
 #title{
     text-align: center;
+    font-size: 3vw;
+    letter-spacing: 1vw;
+    text-transform: uppercase;
 }
 
 p{
     text-align: center;
-    margin-left: 5vw;
-    margin-right: 5vw;
+    margin-left: 8vw;
+    margin-right: 8vw;
+    font-size: 1.2vw;
+    font-weight: 100;
+    margin-bottom: 50px;
 }
+
+
+.row {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    padding: 0 4px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 50px;
+  }
+  
+  /* Create 3 equal columns that sits next to each other */
+  .column {
+    -ms-flex: 20%; /* IE10 */
+    flex: 20%;
+    max-width: 100%;
+    padding: 0 4px;
+  }
+  
+  .column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+  }

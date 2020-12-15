@@ -1,20 +1,21 @@
-<p>this is where shop detail is going to be display</p>
 
-<div *ngFor="let order of purchaseOrder; index as i">
-    <p>Total Price: {{order.total_price}}</p>
-    <div *ngFor="let goods of order.item_list">
-        <p>Goods: {{goods.goods_name}}</p>
-        <img src={{goods.img_src}} width="150" height="200">
-        <div class="quantity">
-            <p>{{goods.quant}}</p>
+
+<div *ngFor="let order of purchaseOrder; index as i" class="quantity">
+    <p id="price">Total Price: {{order.total_price}}</p>
+    <div *ngFor="let goods of order.item_list" class="header">
+        <div class="header">
+            <p id="name">{{goods.goods_name}} | {{goods.quant}}</p>
         </div>
+        <img src={{goods.img_src}} width="300" height="450" class="image">
     </div>
 </div>
 
-<button (click)="getDetail()">Checking</button>
 
-<a class="shop" routerLink="/shop-component">
-    <button class="circle">
+<a class="shop">
+    <button class="circle" routerLink="/shop-component">
         BACK
+    </button>
+    <button (click)="getDetail()" class="checkout">
+        CHECK OUT
     </button>
 </a>

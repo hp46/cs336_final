@@ -1,8 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
 * {
+    font-family: "OpenSans", sans-serif;
     padding: 30px;
+    display: inline-block;
+    border: 0px solid black;
 }
 
-.two {
+.display {
+    display: flex;
+    justify-content: center;
+}
+
+#body {
+    font-size: 4vw;
+    font-weight: 1000;
+    text-transform: uppercase;
+    position: relative;
+    letter-spacing: .2vw;
+    line-height: 6vw;
+    font-style: italic;
+    margin-right: 100px;
+}
+
+
+.textname {
     background: transparent;
     border: none;
     border-bottom: 1px solid #000000;
@@ -12,10 +34,12 @@
 
 
 .title {
+    margin-left: 30px;
     font-size: 2vw;
     text-transform: uppercase;
-    font-weight: 500;
-    font-style: italic;
+    font-weight: 800;
+    letter-spacing: .05vw;
+    border: 2px solid black;
 }
 
 button {
@@ -26,8 +50,9 @@ button {
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
-    margin-left: 55px;
-    font-size: .9vw;
+    margin-left: 20px;
+    text-transform: uppercase;
+    font-size: .7vw;
 }
 
 button:hover {
@@ -35,7 +60,10 @@ button:hover {
 }
 
 .information {
+    border: 1px solid black;
     margin-left: 30px;
+    font-size: 30px;
+    margin-right: 30px;
     height: 200px;
     width: 400px;
     padding-left:0;

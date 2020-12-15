@@ -1,21 +1,24 @@
 <div *ngFor="let goods of goodsList; index as i" class="shop-item">
     <p id="title">{{goods.goods_name}}</p>
-    <img src={{goods.img_src}} width="300" height="400">
+    <img src={{goods.img_src}} width="400" height="550" class="image"> <br>
     <div class="quantity">
-        <p>{{goods.quant}}</p>
+        <p id="size">{{goods.quant}}</p>
         <button class="plus" (click)="plusone(i)">
-            <img src="../assets/images/plus.jpg" width="50" height="50">
+            <img src="../assets/images/plus.png" width="" height="35">
         </button>
         <button class="minus" (click)="minusone(i)">
-            <img src="../assets/images/minus.jpg" width="50" height="50">
-        </button>
+            <img src="../assets/images/minus.png" width="35" height="35"> 
+        </button>    
     </div>
+    <br> 
 </div>
-<button (click) = "createPurchaseOrder()">Add to cart</button>
+<br>
 
-
-<a class="checkout" (click) = serviceTest() routerLink="/detail-component">
-    <button class="circle">
+<a class="checkout">
+    <button class="circle" (click) = serviceTest() routerLink="/detail-component">
         CHECK OUT
     </button>
+    <button (click) = "createPurchaseOrder()" class="cart">
+        <img src="../assets/images/cart.jpg" width="35" height="35"> 
+    </button> 
 </a>

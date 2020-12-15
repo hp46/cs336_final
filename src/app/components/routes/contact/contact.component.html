@@ -1,13 +1,23 @@
-<div class="title">
-    <label>Id: </label>
-    <input type='text' [(ngModel)] = "id" class="two"><br>
-    <label>Name: </label>
-    <input type='text' [(ngModel)] = "name" class="two"><br>
-    <label> Email: </label>
-    <input type = "text" [(ngModel)] = "email" class="two"><br>
-    <label> Information: </label><br>
-    <!-- <input type = "text" [(ngModel)] = "information" class="information"><br> -->
-    <textarea class="information" [(ngModel)] = "information" cols="30" rows="10"></textarea>
+<div class="display">
+    <div id="body">
+        <p>Hi,
+            <br> please contact me
+            <br>for any question or
+            <br>freelance work!
+        </p>
+    </div>
+    
+    <div class="title">
+        <label>Name:   </label>
+        <input type='text' [(ngModel)] = "id" class="textname"><br>
+        <label>Phone#: </label>
+        <input type='text' [(ngModel)] = "name" class="textname"><br>
+        <label> Email: </label>
+        <input type = "text" [(ngModel)] = "email" class="textname"><br>
+        <label> Information: </label><br>
+        <textarea class="information" [(ngModel)] = "information" cols="30" rows="10"></textarea> <br>
+        <button (click)="storeContact()">Submit</button>  
+        <button (click)="deleteContact()">Delete</button>  
+    </div>
+    
 </div>
-<button (click)="storeContact()">Submit</button>  
-<button (click)="deleteContact()">Delete</button>  
