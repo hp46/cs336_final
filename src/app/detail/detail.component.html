@@ -4,9 +4,10 @@
     <p id="price">Total Price: {{order.total_price}}</p>
     <div *ngFor="let goods of order.item_list" class="header">
         <div class="header">
+            <img src={{goods.img_src}} width="300" height="450" class="image">
             <p id="name">{{goods.goods_name}} | {{goods.quant}}</p>
         </div>
-        <img src={{goods.img_src}} width="300" height="450" class="image">
+
     </div>
 </div>
 

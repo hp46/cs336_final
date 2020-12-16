@@ -7,6 +7,7 @@ import {MatDialog, MatDialogConfig, MatDialogRef} from '@angular/material/dialog
   styleUrls: ['./design-card.component.scss']
 })
 export class DesignCardComponent implements OnInit {
+  //variable declaration for inputs from different component
   @Input() path: string;
   @Input() title: string;
   @Input() textcolor: string;

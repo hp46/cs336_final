@@ -1,3 +1,4 @@
+<!-- goods layout -->
 <div *ngFor="let goods of goodsList; index as i" class="shop-item">
     <p id="title">{{goods.goods_name}} : ${{goods.price}}</p>
     <img src={{goods.img_src}} width="400" height="550" class="image"> <br>
@@ -14,6 +15,7 @@
 </div>
 <br>
 
+<!-- buttons on the bottoms for checkout and put into cart -->
 <a class="checkout">
     <button class="circle" (click) = serviceTest() routerLink="/detail-component">
         CHECK OUT
