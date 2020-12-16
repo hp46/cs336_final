@@ -11,7 +11,9 @@ import { PurchaseOrder } from '../../../purchase-order.service'
   styleUrls: ['./shop.component.scss']
 })
 export class ShopComponent implements OnInit {
+  // Available goods for purchase
   goodsList: Item[] = [];
+
   purchaseOrder: PurchaseOrder = {
     total_price: 0,
     item_list: []
@@ -25,9 +27,9 @@ export class ShopComponent implements OnInit {
   total_price: number = 0;
   purchaseOrderId: string = "first_purchase";
 
+  // Gets GoodsList from the PorchaseOrderService
   constructor( private db: AngularFirestore, private poService: PurchaseOrderService ) {
     this.poService.getGoodsList().subscribe(data => {
-      //console.log("this is : " + data);
       this.goodsList = data;
     });
   }
@@ -35,11 +37,14 @@ export class ShopComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // Adds 1 to quantity
   plusone(index: number) {
     this.goodsList[index].quant += 1;
   }
 
+  // Subtract 1 to quantity
   minusone(index: number) {
+    // Make sure quantity is zero or above
     if (this.goodsList[index].quant > 0 ) {
       this.goodsList[index].quant -= 1;
     }
@@ -56,11 +61,9 @@ export class ShopComponent implements OnInit {
       total_price: this.total_price,
       item_list: this.goodsList
     };
-
-    console.log(this.purchaseOrder);
   }
 
-  serviceTest() {
+  purchase() {
     this.poService.addPurchaseOrderDB(this.purchaseOrder)
 
     // Reset goods' quantity

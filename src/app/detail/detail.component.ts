@@ -1,17 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PurchaseOrderService } from '../purchase-order.service';
-
-export interface Item {
-  goods_name: string;
-  img_src: string;
-  quant: number;
-  price: number;
-}
-
-export interface PurchaseOrder {
-  total_price: number;
-  item_list: Item[];
-}
+import { PurchaseOrder } from '../purchase-order.service'
 
 @Component({
   selector: 'app-detail',
@@ -23,9 +12,9 @@ export class DetailComponent implements OnInit {
 
   purchaseOrder: PurchaseOrder[] = [];
 
+  // Get observable from the PurchaseOrderService
   constructor(private poService: PurchaseOrderService) {
     this.poService.getPurchaseOrder().subscribe(data => {
-      console.log("this is : " + data);
       this.purchaseOrder = data;
     });
   }
@@ -33,9 +22,4 @@ export class DetailComponent implements OnInit {
   ngOnInit(): void {
 
   }
-
-  getDetail() {
-    console.log(this.poService.getPurchaseOrder())
-  }
-
 }

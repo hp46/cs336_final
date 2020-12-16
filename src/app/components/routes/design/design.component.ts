@@ -14,6 +14,9 @@ export class DesignComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
+  // Originally planned to use a pop-up system, but scrapped
+
   // openDialog() {
   //   const dialogRef = this.dialog.open
   //   (DialogContentExampleDialog);
